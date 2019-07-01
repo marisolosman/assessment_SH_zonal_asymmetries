@@ -1,0 +1,5 @@
+#ignore all figures
+*.jpg
+*.png
+#ignore numpy saved files
+*.npz
