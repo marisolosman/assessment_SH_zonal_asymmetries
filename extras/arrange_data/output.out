@@ -1,0 +1,590 @@
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't create file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 292, in from_indexpath_or_filestream
+    with compat_create_exclusive(indexpath) as new_index_file:
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 239, in compat_create_exclusive
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Can't read index file ''
+Traceback (most recent call last):
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/cfgrib/messages.py", line 302, in from_indexpath_or_filestream
+    index_mtime = os.path.getmtime(indexpath)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "compute_winds_monthly_mean.py", line 58, in <module>
+    winds =xr.concat(winds, dim='year')
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/xarray/core/combine.py", line 122, in concat
+    return f(objs, dim, data_vars, coords, compat, positions)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/xarray/core/combine.py", line 232, in _dataset_concat
+    concat_over, equals = _calc_concat_over(datasets, dim, data_vars, coords)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/xarray/core/combine.py", line 213, in _calc_concat_over
+    process_subset_opt(coords, 'coords')
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/xarray/core/combine.py", line 178, in process_subset_opt
+    v_rhs = ds_rhs.variables[k].compute()
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/xarray/core/utils.py", line 317, in __getitem__
+    return self.mapping[key]
+KeyError: 'isobaricInhPa'
