@@ -3,3 +3,5 @@
 *.png
 #ignore numpy saved files
 *.npz
+#ignore compressed files
+#*.gz

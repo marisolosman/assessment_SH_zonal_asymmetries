@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --ntasks=1 #(default, so here optional)
+#SBATCH --array=1-1000
+#SBATCH --cpus-per-task=1  #(default, so here optional)
+#SBATCH --job-name=correlations_asymmetries_3
+#SBATCH --output=out_correlations_3.out
+#SBATCH --partition=cluster #(optional, default is cluster
+#SBATCH --time=10:00 #(optional, default is 24 hours)
+#SBATCH --mem-per-cpu=2048MB #(optional, default is 1024 MB)
+iter=`expr 2000 + ${SLURM_ARRAY_TASK_ID}`
+python correlations_asymmetries_z50.py ${iter}̣

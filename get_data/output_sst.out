@@ -1,0 +1,73 @@
+######### ERA-interim  #########
+get data from  19920801
+################################
+2019-09-20 19:26:35 ECMWF API python library 1.5.0
+2019-09-20 19:26:35 ECMWF API at https://api.ecmwf.int/v1
+2019-09-20 19:26:35 Welcome Marisol Osman
+2019-09-20 19:26:35 In case of problems, please check https://confluence.ecmwf.int/display/WEBAPI/Web-API+Troubleshooting or contact servicedesk@ecmwf.int. In case of delays, please check  service activity page https://apps.ecmwf.int/webapi-activity/
+2019-09-20 19:26:35 Request submitted
+2019-09-20 19:26:35 Request id: 5d8519db2fd81c5f72f51aaf
+2019-09-20 19:26:35 Request is submitted
+2019-09-20 19:26:37 Request is queued
+Calling 'nice mars /tmp/8e/e5/tmp-_marsixhm_Y.req'
+mars - WARN -
+mars - WARN - From 29 January 2019 10AM (UTC) MARS uses the interpolation
+mars - WARN - provided by the MIR library. For more details, see
+mars - WARN - https://confluence.ecmwf.int/display/UDOC/MARS+interpolation+with+MIR
+mars - WARN -
+PPDIR is /var/tmp/ppdir/x86_64
+mars - INFO   - 20190920.195109 - Welcome to MARS
+mars - INFO   - 20190920.195109 - MARS Client build stamp: 20190607111047
+mars - INFO   - 20190920.195109 - MARS Client version: 6.25.3
+mars - INFO   - 20190920.195109 - MIR version: 1.2.5
+mars - INFO   - 20190920.195109 - Using ecCodes version 2.12.6
+mars - INFO   - 20190920.195109 - Using odb_api version: 0.15.10 (file format version: 0.5)
+mars - INFO   - 20190920.195109 - Maximum retrieval size is 30.00 G
+retrieve,origin=ecmf,stream=mmsf,levtype=sfc,system=4,expver=1,number=0/to/50,padding=0,method=1,step=2904/to/5160/by/24,grid=128,param=34.128,time=00:00:00,date=19920801,type=fc,class=odmars - INFO   - 20190920.195109 - Automatic split by date is on
+
+mars - INFO   - 20190920.195109 - Processing request 1
+
+RETRIEVE,
+    CLASS      = OD,
+    TYPE       = FC,
+    STREAM     = MMSF,
+    EXPVER     = 0001,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 34.128,
+    TIME       = 0000,
+    STEP       = 2904/2928/2952/2976/3000/3024/3048/3072/3096/3120/3144/3168/3192/3216/3240/3264/3288/3312/3336/3360/3384/3408/3432/3456/3480/3504/3528/3552/3576/3600/3624/3648/3672/3696/3720/3744/3768/3792/3816/3840/3864/3888/3912/3936/3960/3984/4008/4032/4056/4080/4104/4128/4152/4176/4200/4224/4248/4272/4296/4320/4344/4368/4392/4416/4440/4464/4488/4512/4536/4560/4584/4608/4632/4656/4680/4704/4728/4752/4776/4800/4824/4848/4872/4896/4920/4944/4968/4992/5016/5040/5064/5088/5112/5136/5160,
+    NUMBER     = 0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41/42/43/44/45/46/47/48/49/50,
+    DOMAIN     = G,
+    ORIGIN     = ECMF,
+    SYSTEM     = 4,
+    METHOD     = 1,
+    RESOL      = AUTO,
+    GRID       = F128,
+    PADDING    = 0,
+    DATE       = 19920801
+
+mars - INFO   - 20190920.195109 - Web API request id: 5d8519db2fd81c5f72f51aaf
+mars - INFO   - 20190920.195109 - Requesting 4845 fields
+mars - INFO   - 20190920.195109 - Calling mars on 'marsod', callback on 36805
+2019-09-20 20:51:37 Request is active
+Error contacting the WebAPI, retrying in 60 seconds ...
+mars - INFO   - 20190921.000206 - Server task is 651 [marsod]
+mars - INFO   - 20190921.000206 - Request cost: 4,845 fields, 636.795 Mbytes on 2 tapes, nodes: hpss [marsod]
+mars - INFO   - 20190921.001100 - Transfering 667728210 bytes
+mars - INFO   - 20190921.001351 - 4845 fields retrieved from 'marsod'
+mars - INFO   - 20190921.001351 - 4845 fields have been interpolated
+mars - INFO   - 20190921.001351 - Request time:  wall: 4 hour 22 min 42 sec  cpu: 2 min 50 sec
+mars - INFO   - 20190921.001351 -   Read from network: 636.80 Mbyte(s) in 1 sec  [463.29 Mbyte/sec]
+mars - INFO   - 20190921.001351 -   Processing in marsod: wall: 4 hour 19 min 50 sec
+mars - INFO   - 20190921.001351 -   Visiting marsod: wall: 4 hour 22 min 42 sec
+mars - INFO   - 20190921.001351 -   Post-processing: wall: 2 min 43 sec cpu: 2 min 42 sec
+mars - INFO   - 20190921.001351 -   Writing to target file: 879.51 Mbyte(s) in 1 sec  [653.70 Mbyte/sec] cpu: 1 sec
+mars - INFO   - 20190921.001351 - Memory used: 47.12 Mbyte(s)
+mars - INFO   - 20190921.001351 - No errors reported
+Process '['nice', 'mars', '/tmp/8e/e5/tmp-_marsixhm_Y.req']' finished
+2019-09-21 01:14:17 Request is complete
+2019-09-21 01:14:17 Transfering 879.513 Mbytes into /storage/silver/acrcc/vg140344/SST_S4Hindcasts_0108_24Hourly_19920801.grib
+2019-09-21 01:14:17 From https://stream.ecmwf.int/data/atls04/data/data04/scratch/52/50/_mars-atls04-a562cefde8a29a7288fa0b8b7f9413f7-_eHuww.grib
+2019-09-21 01:28:15 Transfer rate 1.05018 Mbytes/s
+2019-09-21 01:28:15 Done.

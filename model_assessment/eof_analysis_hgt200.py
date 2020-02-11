@@ -66,13 +66,15 @@ def PlotScree(var_exp, ntimes, title, filename):
 	plt.close()
 
 ROUTE = '~/datos/data/'
-FILE_HGT_S4 = 'monthly_hgt200_aug_feb.nc'
+FIG_PATH = '/home/users/vg140344/assessment_SH_zonal_asymmetries/figures/model_assessment/'
+FILE_HGT_S4 = 'monthly_hgt200_aug_feb.nc4'
 hgt_s4 = xr.open_dataset(ROUTE + FILE_HGT_S4)
 hgt_s4 = hgt_s4.sel(**{'latitude':slice(-20, -90)})
 FILE_HGT_ERAI = 'hgt_erai_200.nc4'
 hgt_erai = xr.open_dataset(ROUTE + FILE_HGT_ERAI)
 hgt_erai.time.values = hgt_erai.valid_time.values
-hgt_erai.z.values = hgt_erai.z.values / 10
+#remove data from august 2002 to february 2003
+hgt_erai = hgt_erai.sel(time=hgt_erai.time.values[np.logical_or(hgt_erai.time.values<=np.datetime64('2002-07-31'), hgt_erai.time.values>=np.datetime64('2003-03-01'))])
 hgt_erai = hgt_erai.sel(**{'time':slice('1981-08-01', '2018-02-01')})
 hgt_erai = hgt_erai.sel(**{'latitude':slice(-20, -90)})
 
@@ -108,9 +110,9 @@ for i in np.arange(0, 5):
 	pcs = solver.pcs(npcs=5, pcscaling=1)
 	pc_erai[i, :, :] = pcs[:, 0:3]
 	title = 'Observed HGT 200hPa EOFs - ' + season[i]
-	filename = './figures/obs_eof_' + season[i] + '.png'
-	#PlotEOF(eofs[0:3, :, :], lat_erai, lon_erai, title, filename)
-	filename = './figures/obs_scree_' + season[i] + '.png'
+	filename = FIG_PATH + 'obs_eof_' + season[i] + '.png'
+	PlotEOF(eofs[0:3, :, :], lat_erai, lon_erai, title, filename)
+	filename = FIG_PATH + 'obs_scree_' + season[i] + '.png'
 	ttle = 'Variance Explained by Observed modes - ' + season[i]
 	PlotScree(exp_var, 36, title, filename)
 	#eof analysis model mean
@@ -124,11 +126,11 @@ for i in np.arange(0, 5):
 	exp_var_s4 = solver_s4.varianceFraction()
 	pcs_s4 = solver_s4.pcs(npcs=10, pcscaling=1)
 	title = 'S4 HGT 200hPa EOFs - ' + season[i]
-	filename = './figures/S4_eof_' + season[i] + '.png'
-	#PlotEOF(eofs_s4[0:3, :, :], lat_s4, lon_s4, title, filename)
-	filename = './figures/S4_scree_' + season[i] + '.png'
+	filename = FIG_PATH + 'S4_eof_' + season[i] + '.png'
+	PlotEOF(eofs_s4[0:3, :, :], lat_s4, lon_s4, title, filename)
+	filename = FIG_PATH + 'S4_scree_' + season[i] + '.png'
 	ttle = 'Variance Explained by S4 modes - ' + season[i]
-#	PlotScree(exp_var_s4, 36*51, title, filename)
+	PlotScree(exp_var_s4, 36*51, title, filename)
 	#eof analysis model realizations
 	z_mean = np.nanmean(hgt_s4_smean, axis=0)
 	z_anom = hgt_s4_smean - z_mean
@@ -136,13 +138,12 @@ for i in np.arange(0, 5):
 	eofs_s4_realiz = solver_s4_realiz.eofsAsCorrelation(neofs=5)
 	exp_var_s4_realiz = solver_s4_realiz.varianceFraction()
 	pcs_s4_realiz = solver_s4_realiz.pcs(npcs=5, pcscaling=1)
-#	title = 'S4 realizations HGT 200hPa EOFs - ' + season[i]
-#	filename = './figures/S4_realiz_eof_' + season[i] + '.png'
-#	PlotEOF(eofs_s4_realiz[0:3, :, :], lat_s4, lon_s4, title, filename)
-#	filename = './figures/S4_realiz_scree_' + season[i] + '.png'
-#	ttle = 'Variance Explained by S4 realizations modes - ' + season[i]
-#	PlotScree(exp_var_s4_realiz, 36*51, title, filename)
-	
+	title = 'S4 realizations HGT 200hPa EOFs - ' + season[i]
+	filename = FIG_PATH + 'S4_realiz_eof_' + season[i] + '.png'
+	PlotEOF(eofs_s4_realiz[0:3, :, :], lat_s4, lon_s4, title, filename)
+	filename = FIG_PATH + 'S4_realiz_scree_' + season[i] + '.png'
+	ttle = 'Variance Explained by S4 realizations modes - ' + season[i]
+	PlotScree(exp_var_s4_realiz, 36*51, title, filename)
 	#compute correlation between observed and forecasted PCs
 	eofs = np.reshape(eofs,[5, np.shape(lat_erai)[0] * np.shape(lat_erai)[1] ] )
 	#eofs_s4 = np.reshape(eofs_s4,[10, np.shape(lat_s4)[0] * np.shape(lat_s4)[1] ] )
@@ -204,18 +205,12 @@ s4_realiz_pc_sorted = np.reshape(s4_realiz_pc_sorted, [5, 36, 51, 3])
 
 for i in range(5):
 	title = 'S4 realizations HGT 200hPa EOFs - ' + season[i]
-	filename = './figures/sorted_S4_realiz_eof_' + season[i] + '.png'
+	filename = FIG_PATH + 'sorted_S4_realiz_eof_' + season[i] + '.png'
 	PlotEOF(s4_realiz_eof_sorted[i, :, :, :], lat_s4, lon_s4, title, filename)
 	title = 'S4 HGT 200hPa EOFs - ' + season[i]
-	filename = './figures/sorted_S4_eof_' + season[i] + '.png'
+	filename = FIG_PATH + 'sorted_S4_eof_' + season[i] + '.png'
 	PlotEOF(s4_eof_sorted[i, :, :, :], lat_s4, lon_s4, title, filename)
 	title = 'Observed and S4 HGT 200hPa PCs - ' + season[i]
-	filename = './figures/PCs_' + season[i] + '.png'
+	filename = FIG_PATH + 'PCs_' + season[i] + '.png'
 	PlotPCs(pc_erai[i, :, :], s4_pc_sorted[i, :, :], s4_realiz_pc_sorted[i, :, :, :], np.arange(1981, 2017), title, filename)
-
-
-
-
-
-
 

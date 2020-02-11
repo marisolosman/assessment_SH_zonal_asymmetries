@@ -4,7 +4,7 @@ import calendar
   
 server = ECMWFService("mars")
 
-for year in range(1989, 2018):
+for year in range(1997, 2018):
 	#Select year for data extraction
 	print ('YEAR ',year)
 	initmonth=11

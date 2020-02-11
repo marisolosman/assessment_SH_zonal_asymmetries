@@ -6,7 +6,7 @@ import pandas as pd
 import cfgrib
 import os
 os.environ['HDF5_USE_FILE_LOCKING'] = 'FALSE'
-RUTA = '/storage/shared/glusterfs/acrcc/users/vg140344/ERAI/'
+RUTA = '/storage/silver/acrcc/vg140344/ERAI/'
 
 ds = xr.open_mfdataset(RUTA + 'sst_erai*', engine='cfgrib')
 a = xr.concat([xr.open_dataset(RUTA + '../sst_erai_2013.grib', engine='cfgrib', backend_kwargs={'filter_by_keys': {'totalNumber':0}}),xr.open_dataset(RUTA + '../sst_erai_2013.grib', engine='cfgrib', backend_kwargs={'filter_by_keys': {'totalNumber':'undef'}})], dim='time')

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "compute_RWS.py", line 64, in <module>
+    S_seasonal['season'] = np.array(seas)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/xarray/core/dataarray.py", line 480, in __setitem__
+    self.coords[key] = value
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/xarray/core/coordinates.py", line 25, in __setitem__
+    self.update({key: value})
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/xarray/core/coordinates.py", line 93, in update
+    self._update_coords(coords)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/xarray/core/coordinates.py", line 234, in _update_coords
+    dims = calculate_dimensions(coords_plus_data)
+  File "/home/users/vg140344/.conda/envs/pysol/lib/python3.6/site-packages/xarray/core/dataset.py", line 110, in calculate_dimensions
+    (dim, size, k, dims[dim], last_used[dim]))
+ValueError: conflicting sizes for dimension 'season': length 2 on <this-array> and length 5 on 'season'
