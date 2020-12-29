@@ -1,5 +1,5 @@
-#compute boxplot of spv for ninios
-#compute regression between spv and enso
+# compute boxplot of spv for ninios
+# compute regression between spv and enso
 import numpy as np
 import datetime
 import pandas as pd
@@ -29,9 +29,9 @@ index_sninio_erai_upper = ninio34_erai.ninio34_index >= ninio34_erai.ninio34_ind
 index_sninio_erai_lower = ninio34_erai.ninio34_index <= ninio34_erai.ninio34_index.quantile(0.10, dim='dim_0')
 index_sninio_erai_normal = np.logical_and(ninio34_erai.ninio34_index < ninio34_erai.ninio34_index.quantile(0.90, dim='dim_0'), ninio34_erai.ninio34_index > ninio34_erai.ninio34_index.quantile(0.10, dim='dim_0'))
 
-#idem s4
+# idem s4
 ninio34_s4 =  xr.open_dataset(RUTA + FILE_NINIO_S4)
-#select ninio, ninia and neutral
+# select ninio, ninia and neutral
 index_ninio_s4_upper = ninio34_s4.ninio34_index >= ninio34_s4.ninio34_index.quantile(0.75, dim='dim_0')
 index_ninio_s4_lower = ninio34_s4.ninio34_index <= ninio34_s4.ninio34_index.quantile(0.25, dim='dim_0')
 index_ninio_s4_normal = np.logical_and(ninio34_s4.ninio34_index < ninio34_s4.ninio34_index.quantile(0.75, dim='dim_0'), ninio34_s4.ninio34_index > ninio34_s4.ninio34_index.quantile(0.25, dim='dim_0'))
@@ -145,6 +145,6 @@ plt.xlim([-limite - 0.5 , limite + 0.5])
 plt.xlabel('Ninio 3.4')
 plt.ylabel('PoV index')
 plt.suptitle('Regression PoV vs ENSO - S4 - correlation: ' + '{:03.2f}'.format(np.corrcoef(ninio34_s4.ninio34_index.values, PoV_s4.SPV_index.values)[0,1]))
-plt.savefig(FIG_PATH + 'regression_pov_enso_s4.png', res=400,bbox_inches='tight' )
+plt.savefig(FIG_PATH + 'regression_pov_enso_s4.png', res=400, bbox_inches='tight' )
 
 

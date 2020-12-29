@@ -1,4 +1,4 @@
-#sort el ninio events
+#compute monthly plumb fluxes
 import numpy as np
 import xarray as xr
 import pandas as pd
@@ -45,12 +45,12 @@ px = []
 py = []		
 for i in np.arange(0,2):
 	if i == 0:
-		var1 = hgt.sel(**{'month':slice(8, 10)}).mean(dim='month')
-		var2 = winds.sel(**{'month':slice(8, 10)}).mean(dim='month')
+		var1 = hgt.sel(**{'month': slice(8, 10)}).mean(dim='month')
+		var2 = winds.sel(**{'month': slice(8, 10)}).mean(dim='month')
 
 	else:
-		var1 = hgt.sel(**{'month':slice(9, 11)}).mean(dim='month')
-		var2 = winds.sel(**{'month':slice(9, 11)}).mean(dim='month')
+		var1 = hgt.sel(**{'month': slice(9, 11)}).mean(dim='month')
+		var2 = winds.sel(**{'month': slice(9, 11)}).mean(dim='month')
 	pfx, pfy, lat = plumb_flux.ComputePlumbFluxes(var2.u.values, var2.v.values,
 						      var1.z.values,
 						      var1.latitude.values, var1.longitude.values)

@@ -9,7 +9,7 @@ RUTA='/home/users/vg140344/datos/data/fogt/'
 ds = xr.open_dataset(RUTA + 'sst_s4_aug_nov.nc4')
 ds.coords['year'] = np.arange(1981, 2017)
 ds = ds.stack(realiz = ['year', 'number'])
-ds = ds.sel(**{'month':slice(8,11)})
+ds = ds.sel(**{'month': slice(8, 11)})
 ds = ds.reset_index('realiz')
 ds = ds.drop(['year', 'number', 'IC'])
 #abro el archivo de sst en DEF y junto la coordenada year and number

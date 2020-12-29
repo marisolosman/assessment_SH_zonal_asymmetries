@@ -1,4 +1,4 @@
-#sort el ninio events
+# compute PV index for different seasons
 import numpy as np
 import xarray as xr
 import matplotlib.pyplot as plt
@@ -7,15 +7,15 @@ import eofdata
 
 ds = xr.open_dataset('./data/PV_monthly.nc')
 
-ds.coords['year'] = np.arange(1981,2017)
+ds.coords['year'] = np.arange(1981, 2017)
 
 #junto la cordenada year y number para categorizar enventos
 
 ds = ds.stack(realiz = ['year', 'number']).compute()
 print(ds)
 #compute seasona means: ASO and SON
-PV_aso = ds.sel(**{'month':slice(8,10)}).mean(dim='month')
-PV_son = ds.sel(**{'month':slice(9,11)}).mean(dim='month')
+PV_aso = ds.sel(**{'month': slice(8, 10)}).mean(dim='month')
+PV_son = ds.sel(**{'month': slice(9, 11)}).mean(dim='month')
 PV_seasonal = xr.concat([PV_aso, PV_son], dim='season')
 #select upper and lower quartile
 PV_aso_lower = PV_aso.quantile(0.25, dim='realiz', interpolation='linear')

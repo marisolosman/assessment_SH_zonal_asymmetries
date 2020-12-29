@@ -1,4 +1,4 @@
-#concatenate HGT at 200hPa and 50 hPa era interim data from 1981 to 2018
+#concatenate wind data at 200hPa and 50 hPa era interim data from 1981 to 2018
 import numpy as np
 import xarray as xr
 import matplotlib.pyplot as plt
@@ -10,7 +10,7 @@ RUTA = '~/datos/ERAI/'
 winds200 = []
 for Y in np.arange(1981, 2019):
 	ds = xr.open_dataset(RUTA + 'WINDS_erai_' + str(Y) + '.grib',
-				engine='cfgrib', backend_kwargs={'indexpath':''})
+				engine='cfgrib', backend_kwargs={'indexpath': ''})
 	ds = ds.sel(isobaricInhPa=200)
 	ds = ds.drop(['number', 'isobaricInhPa', 'step'])
 	winds200.append(ds)
@@ -22,7 +22,7 @@ winds200.to_netcdf('~/datos/data/winds_erai_200.nc4')
 winds50 = []
 for Y in np.arange(1981, 2019):
 	ds = xr.open_dataset(RUTA + 'WINDS_erai_' + str(Y) + '.grib',
-				engine='cfgrib', backend_kwargs={'indexpath':''})
+				engine='cfgrib', backend_kwargs={'indexpath': ''})
 	ds = ds.sel(isobaricInhPa=50)
 	ds = ds.drop(['number', 'isobaricInhPa', 'step'])
 	winds50.append(ds)

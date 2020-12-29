@@ -12,12 +12,11 @@ FILE = 'hgt_erai_50.nc4'
 hgt = xr.open_dataset(RUTA + FILE)
 hgt.time.values = hgt.valid_time.values
 # Discard data from 2002-2003
-hgt = hgt.sel(time= np.logical_or(hgt.time.values <=np.datetime64('2002-07-31'), hgt.time.values>=np.datetime64('2003-08-01')))
-
-hgt = hgt.sel(**{'latitude':slice(-60, -90)}).mean(dim=['longitude','latitude'])
-hgt = hgt.sel(**{'time':slice('1981-08-01', '2018-02-28')})
-
-SPV = hgt.sel(time=np.logical_or(hgt['time.month']>=8, hgt['time.month']<=2))
+hgt = hgt.sel(time=np.logical_or(hgt.time.values <= np.datetime64('2002-07-31'),
+				 hgt.time.values>=np.datetime64('2003-08-01')))
+hgt = hgt.sel(**{'latitude': slice(-60, -90)}).mean(dim=['longitude', 'latitude'])
+hgt = hgt.sel(**{'time': slice('1981-08-01', '2018-02-28')})
+SPV = hgt.sel(time=np.logical_or(hgt['time.month'] >=8, hgt['time.month']<=2))
 
 SPV = np.reshape(SPV.z.values,[36, 7])
 SPV = (SPV - np.mean(SPV, axis=0))

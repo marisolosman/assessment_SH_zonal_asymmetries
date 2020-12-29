@@ -15,8 +15,8 @@ ds = ds.stack(realiz = ['year', 'number'])
 print(ds)
 print(ds.realiz.values)
 #compute seasonal means: ASO and SON
-ninio34_aso = ds.sel(**{'month':slice(8,10)}).mean(dim='month')
-ninio34_son = ds.sel(**{'month':slice(9,11)}).mean(dim='month')
+ninio34_aso = ds.sel(**{'month': slice(8,10)}).mean(dim='month')
+ninio34_son = ds.sel(**{'month': slice(9,11)}).mean(dim='month')
 ninio34_seasonal = xr.concat([ninio34_aso, ninio34_son], dim='season')
 #select upper and lower quartile
 ninio34_season_lower = ninio34_aso.quantile(0.25, dim='realiz', interpolation='linear')
@@ -34,7 +34,8 @@ sst_seasonal_index = PC[0, :]
 
 #ninio34_seasonal_quartil = np.quantile(sst_seasonal_index, [0.25, 0.75])
 
-ds_new = xr.Dataset({'ninio34_mon': xr.DataArray(sst_monthly_index), 'ninio34_seas': xr.DataArray(sst_seasonal_index)})
+ds_new = xr.Dataset({'ninio34_mon': xr.DataArray(sst_monthly_index),
+		     'ninio34_seas': xr.DataArray(sst_seasonal_index)})
 ds_new.to_netcdf('./data/ninio34_index.nc')
 ds.reset_index('realiz').to_netcdf('./data/ninio34_monthly.nc')
 ninio34_seasonal.reset_index('realiz').to_netcdf('./data/ninio34_seasonal.nc')
@@ -92,15 +93,18 @@ sst_erai = xr.open_dataset('./data/sst_erai.nc')
 sst_erai.time.values = sst_erai.valid_time.values
 
 #compute ninio 3.4 index
-ninio34_erai = sst_erai.sel(**{'time':slice('1981-08-01', '2018-02-01'), 'latitude':slice(5, -5), 'longitude':slice(190, 240)}).mean(
-			dim=['longitude', 'latitude'])
+ninio34_erai = sst_erai.sel(**{'time':slice('1981-08-01', '2018-02-01'), 'latitude':slice(5, -5),
+			       'longitude':slice(190, 240)}).mean(dim=['longitude', 'latitude'])
 #compute seasonal means: ASO and SON
 ninio34_aso_erai = ninio34_erai.resample(time='QS-Aug').mean(dim='time', skipna='True')
 ninio34_son_erai = ninio34_erai.resample(time='QS-Sep').mean(dim='time', skipna='True')
 
-ninio34_erai_seasonal = xr.concat([ninio34_aso_erai.sel(time=(ninio34_aso_erai['time.month']== 8)), ninio34_son_erai.sel(time=(ninio34_son_erai['time.month']==9))], dim='time').dropna(dim='time')
+ninio34_erai_seasonal = xr.concat([ninio34_aso_erai.sel(time=(ninio34_aso_erai['time.month'] == 8)),
+				   ninio34_son_erai.sel(time=(ninio34_son_erai['time.month'] == 9))],
+				   dim='time').dropna(dim='time')
 
-ninio34_erai_monthly = ninio34_erai.sel(time = np.logical_and(ninio34_erai['time.month']>=8, ninio34_erai['time.month']<=11))
+ninio34_erai_monthly = ninio34_erai.sel(time=np.logical_and(ninio34_erai['time.month'] >= 8,
+					 ninio34_erai['time.month'] <= 11))
 print(ninio34_erai_seasonal)
 print(ninio34_erai_monthly)
 
@@ -108,9 +112,11 @@ print(ninio34_erai_monthly)
 print(v[:, 0])
 sst_monthly_index = -PC[0, :]
 
-[lamb, v, PC] = eofdata.eofdata(np.reshape(ninio34_erai_seasonal.sst.values[~np.isnan(ninio34_erai_seasonal.sst.values)],[2, 36]), 8)
+[lamb, v, PC] = eofdata.eofdata(np.reshape(ninio34_erai_seasonal.sst.values[~np.isnan(ninio34_erai_seasonal.sst.values)],
+									   [2, 36]), 8)
 sst_seasonal_index = PC[0, :]
 print(v[:, 0])
-ds_erai = xr.Dataset({'ninio34_mon': xr.DataArray(sst_monthly_index), 'ninio34_seas': xr.DataArray(sst_seasonal_index)})
+ds_erai = xr.Dataset({'ninio34_mon': xr.DataArray(sst_monthly_index),
+		      'ninio34_seas': xr.DataArray(sst_seasonal_index)})
 ds_erai.to_netcdf('./data/ninio34_erai_index.nc')
 

@@ -30,4 +30,4 @@ for year in [1981, 1982, 2017]:
 		'stream'  : "mmsf",
 		'system'  : "4",
 		'grid'    : "128"},
-		 "/storage/shared/glusterfs/acrcc/users/vg140344/HGT_S4Hindcasts_0111_200hPa_24Hourly%s.grib"%(initbdate))
+		 "/storage/shared/glusterfs/acrcc/users/vg140344/HGT_S4Hindcasts_0111_200hPa_24Hourly_%s.grib"%(initbdate))

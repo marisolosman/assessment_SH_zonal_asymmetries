@@ -10,11 +10,11 @@ RUTA = '~/datos/ERAI/'
 hgt = []
 for Y in np.arange(1981, 2019):
 	ds = xr.open_dataset(RUTA + 'H200_erai_' + str(Y) + '.grib',
-				engine='cfgrib', backend_kwargs={'indexpath':''})
+				engine='cfgrib', backend_kwargs={'indexpath': ''})
 	ds = ds.drop(['number', 'isobaricInhPa', 'step'])
 	hgt.append(ds)
 
-hgt =xr.concat(hgt, dim='time')
+hgt = xr.concat(hgt, dim='time')
 hgt.time.values = np.arange(0, len(hgt.time.values))
 hgt.z.values = hgt.z.values /10
 hgt.to_netcdf('~/datos/data/hgt_erai_200.nc4')
@@ -22,11 +22,11 @@ hgt.to_netcdf('~/datos/data/hgt_erai_200.nc4')
 hgt = []
 for Y in np.arange(1981, 2019):
 	ds = xr.open_dataset(RUTA + 'HGT50_erai_' + str(Y) + '.grib',
-				engine='cfgrib', backend_kwargs={'indexpath':''})
+				engine='cfgrib', backend_kwargs={'indexpath': ''})
 	ds = ds.drop(['number', 'isobaricInhPa', 'step'])
 	hgt.append(ds)
 
-hgt =xr.concat(hgt, dim='time')
+hgt = xr.concat(hgt, dim='time')
 hgt.z.values = hgt.z.values /10
 hgt.time.values = np.arange(0, len(hgt.time.values))
 hgt.to_netcdf('~/datos/data/hgt_erai_50.nc4')

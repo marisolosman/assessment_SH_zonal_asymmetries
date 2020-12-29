@@ -6,8 +6,7 @@ server = ECMWFService("mars")
 
 for year in range(1981, 2018):
 	#Select year for data extraction
-	print ('YEAR ',year)
-	
+	print ('YEAR ',year)	
 	initmonth=8
 	initbdate="%s%02d01"%(year,initmonth)
 	print ("######### ERA-interim  #########")

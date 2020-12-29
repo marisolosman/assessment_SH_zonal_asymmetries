@@ -1,4 +1,4 @@
-#compute monthly el ninio 3.4 index
+#compute monthly PoV index for S4
 import numpy as np
 import xarray as xr
 import eofdata
@@ -6,7 +6,7 @@ import os
 os.environ['HDF5_USE_FILE_LOCKING'] = 'FALSE'
 RUTA = '~/datos/data/'
 ds = xr.open_dataset(RUTA + 'monthly_hgt50_aug_feb.nc4')
-ds = ds.sel(**{'latitude':slice(-60, -90)}).mean(dim=['longitude','latitude']).compute()
+ds = ds.sel(**{'latitude': slice(-60, -90)}).mean(dim=['longitude', 'latitude']).compute()
 
 [lamb, v, PC] = eofdata.eofdata(ds.z.values, 3)
 print(v[:, 0])

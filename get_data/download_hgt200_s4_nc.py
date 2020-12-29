@@ -4,7 +4,7 @@ import calendar
   
 server = ECMWFService("mars")
 
-for year in range(2012, 2018):
+for year in range(1982, 2018):
 	#Select year for data extraction
 	print ('YEAR ',year)
 	
@@ -31,4 +31,4 @@ for year in range(2012, 2018):
 		'system'  : "4",
 		'grid'    : "128",
 		'format'  : "netcdf"},
-		 "/storage/shared/glusterfs/acrcc/users/vg140344/HGT_S4Hindcasts_0111_50hPa_24Hourly%s.nc"%(initbdate))
+		 "/storage/shared/glusterfs/acrcc/users/vg140344/HGT_S4Hindcasts_0111_50hPa_24Hourly_%s.nc"%(initbdate))

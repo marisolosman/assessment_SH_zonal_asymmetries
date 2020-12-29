@@ -22,5 +22,4 @@ ds1 = xr.concat([ds_ea, ds_as], dim='point')
 ds1.coords['point'] = ['EA', 'AS']
 ds1.to_netcdf('~/datos/data/hgt_points.nc')
 
-#hgt50_as = hgt50.sel(latitude=-67.5, longitude=240, method='nearest')
-#hgt50_ea = hgt50.sel(latitude=-67.5, longitude=110, method='nearest')
+
