@@ -1,5 +1,6 @@
 #plot composites enso phases  and pv intensity for ERAI and S4
 #add significance test
+from __future__ import unicode_literals
 import numpy as np
 import datetime
 import pandas as pd
@@ -181,7 +182,7 @@ for i in np.arange(0, 5):
 	hgt_s4_NSPV = np.nanmean(hgt_s4_smean[index_PV_s4_normal.values, :, :], axis=0)
 	#title = 'Composites Z* 200hPa NINIO-NINIA years - ' + season[i]
 	#filename = FIG_PATH + 'Composites_ENSO_' + season[i] + '_det.eps'
-	title = 'Composites Z* 200hPa NINIO-NINIA years - ' + lmonth[i]
+	title = 'Composites Z* 200hPa NIÑO-NIÑA years - ' + lmonth[i]
 	filename = FIG_PATH + 'Composites_ENSO_' + lmonth[i] + '_det.eps'
 	model = hgt_s4_EN - hgt_s4_LN
 	obs = hgt_erai_EN - hgt_erai_LN
@@ -203,12 +204,12 @@ for i in np.arange(0, 5):
 #	obs = hgt_erai_WSPV - hgt_erai_NSPV
 #	PlotComposites(model, lat_s4, lon_s4, obs, lat_erai, lon_erai, title, filename)
 	#composites SSPV - WsPV
-	title = 'Composites Z* 200hPa Strong-Weak SPV years - ' + lmonth[i]
+	title = 'Composites Z* 200hPa Weak-Strong SPV years - ' + lmonth[i]
 	filename = FIG_PATH + 'Composites_SPV_' + lmonth[i] + '_det.eps'
 	#title = 'Composites Z* 200hPa Strong-Weak SPV years - ' + season[i]
 	#filename = FIG_PATH + 'Composites_SPV_' + season[i] + '_det.eps'
-	model = hgt_s4_SSPV - hgt_s4_WSPV
-	obs = hgt_erai_SSPV - hgt_erai_WSPV
+	model = hgt_s4_WSPV - hgt_s4_SSPV
+	obs = hgt_erai_WSPV - hgt_erai_SSPV
 	var_model = {'var': model, 'mask': model / np.sqrt(SS_s4_SSPV + SS_s4_WSPV),
 		     'df': np.sum(index_PV_s4_upper.values) + np.sum(index_PV_s4_lower.values)}
 	var_obs = {'var': obs, 'mask': obs / np.sqrt(SS_erai_SSPV + SS_erai_WSPV),

@@ -112,6 +112,41 @@ def PlotEnsoCompositesPoV(var1, var2, var3, var4, var5, var6, lat, lon, title, f
 	plt.clf()
 	plt.cla()
 	plt.close()
+def PlotKsEnsoCompositesPoV(var1, var2, var3, var4, var5, var6, lat, lon, title, filename):
+	vars = [var1, var2, var3, var4, var5, var6]
+	tit = ['Ninio - Normal : All PoV', 'Ninia - Normal : All PoV',
+		'Ninio - Normal : Weak PoV', 'Ninia - Normal : Weak PoV',
+		'Ninio - Normal : Strong PoV', 'Ninia - Normal: Strong PoV']
+	proj = ccrs.PlateCarree(central_longitude=180)
+	clevs = np.arange(1, 6, 1)
+	barra = plt.cm.OrRd
+	fig = plt.figure(1, (10, 6.7), 300)
+	for i in range(6):
+		ax = plt.subplot(3, 2, i + 1, projection=proj)
+		ax.set_extent([0, 359, -90, 0], crs=ccrs.PlateCarree())
+		im = ax.contourf(lon, lat, vars[i], clevs, transform=ccrs.PlateCarree(),
+			 	cmap=barra, extend='both', vmin=clevs[0], vmax=clevs[-1])
+		barra.set_under(barra(0))
+		barra.set_over(barra(barra.N-1))
+		ax.coastlines()
+		ax.add_feature(cartopy.feature.BORDERS, linestyle='-', alpha=.5)
+		ax.gridlines(crs=proj, linewidth=0.3, linestyle='-')
+		lon_formatter = LongitudeFormatter(zero_direction_label=True)
+		lat_formatter = LatitudeFormatter()
+		ax.xaxis.set_major_formatter(lon_formatter)
+		ax.yaxis.set_major_formatter(lat_formatter)
+		plt.title(tit[i])
+	plt.suptitle(title, fontsize=12, x=0.47, y=0.9)
+	fig.subplots_adjust(right=0.8)
+	fig.subplots_adjust(bottom=0.17, top=0.82, hspace=0.2, wspace=0.05)
+	cbar_ax = fig.add_axes([0.33, 0.1, 0.25, 0.05])
+	fig.colorbar(im, cax=cbar_ax, orientation='horizontal')
+	plt.savefig(filename, dpi=300, bbox_inches='tight', orientation='landscape',
+		    papertype='A4')
+	plt.clf()
+	plt.cla()
+	plt.close()
+
 def PlotPoVCompositesENSO(var1, var2, var3, var4, var5, var6, lat, lon, title, filename):
 	vars = [var1, var2, var3, var4, var5, var6]
 	tit = ['Strong SPoV - Normal SPov : All ', 'Weak SPoV - Normal SPov : All',

@@ -25,7 +25,7 @@ for i in np.arange(9, 11):
 		fh.writelines("#SBATCH --time=10:00 #(optional, default is 24 hours)\n")
 		fh.writelines("#SBATCH --mem-per-cpu=2048MB #(optional, default is 1024 MB)\n")
 		fh.writelines("iter=`expr %s + ${SLURM_ARRAY_TASK_ID}`\n" %str((i-1)*1000))
-		fh.writelines("python correlations_asymmetries_z200_PV_ninio_sep_new.py ${iter}̣\n")
+		fh.writelines("python correlations_asymmetries_z50_PV_ninio_sep_new.py ${iter}̣\n")
 
 	os.system("sbatch %s" %job_file)
 

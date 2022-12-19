@@ -1,4 +1,5 @@
 #composites of EN events conditioned on PV strength
+from __future__ import unicode_literals
 import numpy as np
 import xarray as xr
 import os
@@ -8,8 +9,8 @@ os.environ['HDF5_USE_FILE_LOCKING'] = 'FALSE'
 PATH_DATA = '~/datos/data/'
 PATH_DATA_2 = '/home/users/vg140344/datos/data/fogt/'
 FIG_PATH = '/home/users/vg140344/assessment_SH_zonal_asymmetries/figures_paper/'
-FILE_NINIO_S4 = 'fogt/ninio34_monthly.nc4'
-FILE_PV_S4 = 'fogt/SPV_index.nc4'
+FILE_NINIO_S4 = 'fogt/ninio34_index_s4_inc_2002.nc4'
+FILE_PV_S4 = 'fogt/SPV_index_inc_2002.nc4'
 ninio34 =  xr.open_dataset(PATH_DATA + FILE_NINIO_S4)
 PV_index =  xr.open_dataset(PATH_DATA + FILE_PV_S4)
 
@@ -46,7 +47,7 @@ print(sum(index_normal))
 print(sum(index_ninio_normal),sum(index_ninia_normal) )
 print(sum(index_SPV_upper), sum(index_SPV_lower))
 print(sum(index_SPV_upper_normal), sum(index_SPV_lower_normal))
-
+print(np.corrcoef(PV_index.SPV_index.values, ninio34.ninio34_index.values))
 fig = plt.figure(figsize=(10,10), dpi=300)
 
 plt.scatter(ninio34.ninio34_index[index_normal], PV_index.SPV_index[index_normal], color='black',
@@ -79,7 +80,7 @@ plt.xlim([-10.2, 10.2])
 plt.tick_params(axis="x", labelsize=11)
 plt.tick_params(axis="y", labelsize=11)
 plt.legend(prop={'size': 12})
-plt.ylim([-1200, 1200])
-plt.title('Scatter SPV vs Niño 3.4 - S4', fontsize=13)
+plt.ylim([-1250, 1250])
+plt.title('Scatter SPV vs Niño 3.4 - S4 (inc 2002)', fontsize=13)
 plt.tight_layout()
-plt.savefig(FIG_PATH + 'scatter_ninio_spov_s4.eps', dpi=300)
+plt.savefig(FIG_PATH + 'scatter_ninio_spov_s4_inc_2002.eps', dpi=300)

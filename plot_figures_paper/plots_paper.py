@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 import numpy as np
 from numpy import ma
 import matplotlib.pyplot as plt
@@ -96,49 +97,49 @@ def PlotCompositesRWSChiWENSOPV(var_1, var_2, var_3, var_4, var_5, var_6, var_7,
 			       u_1, u_2, u_3, u_4, u_5, u_6, u_7, u_8, v_1, v_2, v_3, v_4,
 			       v_5, v_6, v_7, v_8, uu1, uu2, uu3, uu4, uu5, uu6, uu7, uu8,
 			       lat, lon, title, filename):
-	var = [var_1, var_5, var_2, var_6, var_3, var_7, var_4, var_8]
-	tit = ['Weak-Strong SPV cond Ninio', 'Weak-Strong SPV cond Ninia',
-		   'Ninio-Ninia cond Weak SPV', 'Ninio-Ninia cond Strong SPV',
-		   'Ninio & Weak PoV', 'Ninia & Weak PoV',
-		   'Ninio & Strong PoV', 'Ninia & Strong PoV']
-	uchi = [u_1, u_5, u_2, u_6, u_3, u_7, u_4, u_8]
-	vchi = [v_1, v_5, v_2, v_6, v_3, v_7, v_4, v_8]
+	var = [var_1, var_5, var_2, var_6, var_3, var_8, var_4, var_7]
+	tit = ['Weak-Strong SPV cond Niño', 'Weak-Strong SPV cond Niña',
+		   'Niño-Niña cond Weak SPV', 'Niño-Niña cond Strong SPV',
+		   'Niño & Weak PoV', 'Niña & Strong PoV',
+		   'Niño & Strong PoV', 'Niña & Weak PoV']
+	uchi = [u_1, u_5, u_2, u_6, u_3, u_8, u_4, u_7]
+	vchi = [v_1, v_5, v_2, v_6, v_3, v_8, v_4, v_7]
 	uu = [uu1, uu2, uu3, uu4, uu5, uu6, uu7, uu8]
-	clevs = np.arange(-1.2, 1.6, 0.8)
+	clevs = [-1.2, -0.4, 0.4, 1.2]
 	clevs2 = [30, 40]
 	barra = plt.cm.RdBu_r
 	proj = ccrs.PlateCarree(central_longitude=180)
-	fig = plt.figure(1, (10, 7), 300)
+	fig = plt.figure(1, (12, 16), 300)
 	for i in range(8):
-		ax = plt.subplot(4, 2, i + 1, projection=proj)
+		ax = plt.subplot(8, 1, i + 1, projection=proj)
 		ax.set_extent([0, 359, -90, 0], crs=ccrs.PlateCarree())
 		im = ax.contourf(lon, lat, var[i] / 10, clevs,
 				transform=ccrs.PlateCarree(), cmap=barra, extend='both',
-				vmin=-1.2, vmax=1.2)
+				vmin=-1.2, vmax=1.2, alpha=0.65)
 		barra.set_under(barra(0))
 		barra.set_over(barra(barra.N-1))
-		M = np.sqrt(np.add(np.power(uchi[i], 2), np.power(vchi[i], 2))) < 0.3
+		M = np.sqrt(np.add(np.power(uchi[i], 2), np.power(vchi[i], 2))) < 0.35
 		#mask array
 		u_mask = ma.array(uchi[i], mask = M)
 		v_mask = ma.array(vchi[i], mask = M)
-		im2 = ax.quiver(lon[0:-1:10], lat[0:-1:8], u_mask[0:-1:8, 0:-1:10],
-				v_mask[0:-1:8, 0:-1:10], transform=ccrs.PlateCarree(),
+		im2 = ax.quiver(lon[0:-1:12], lat[0:-1:10], u_mask[0:-1:10, 0:-1:12],
+				v_mask[0:-1:10, 0:-1:12], transform=ccrs.PlateCarree(),
 				angles='xy', scale=40)
 		ax.contour(lon, lat, uu[i], clevs2, linewidths=0.8, colors='green',
 			   transform=ccrs.PlateCarree())
-		ax.coastlines()
-		ax.add_feature(cartopy.feature.BORDERS, linestyle='-', alpha=.5)
-		ax.gridlines(crs=proj, linewidth=0.3, linestyle='-')
+		ax.coastlines(linewidth=0.2, edgecolor='lightgray')
+		# ax.add_feature(cartopy.feature.BORDERS, linestyle='-', alpha=.5)
+		# ax.gridlines(crs=proj, linewidth=0.3, linestyle='-')
 		lon_formatter = LongitudeFormatter(zero_direction_label=True)
 		lat_formatter = LatitudeFormatter()
 		ax.xaxis.set_major_formatter(lon_formatter)
 		ax.yaxis.set_major_formatter(lat_formatter)
 		plt.title(tit[i])
-	plt.suptitle(title, fontsize=12, x=0.47, y=0.9)
+	plt.suptitle(title, fontsize=12, x=0.46, y=0.9)
 	fig.subplots_adjust(right=0.8)
-	fig.subplots_adjust(bottom=0.17, top=0.82, hspace=0.15, wspace=0.05)
-	cbar_ax = fig.add_axes([0.34, 0.1, 0.25, 0.05])
-	plt.quiverkey(im2, 0.5, -0.8, 1, "1 m/s", coordinates='axes', color='k')
+	fig.subplots_adjust(bottom=0.19, top=0.86, hspace=0.28)
+	cbar_ax = fig.add_axes([0.34, 0.15, 0.25, 0.02])
+	plt.quiverkey(im2, 0.93, -0.3, 1, "1 m/s", coordinates='axes', color='k')
 	fig.colorbar(im, cax=cbar_ax, orientation='horizontal')
 	plt.savefig(filename, dpi=300, bbox_inches='tight', papertype='A4')
 	plt.clf()
@@ -240,12 +241,12 @@ def PlotCompositesdivPFx4(var50, var200, lat, lon, title, filename):
 #		   'Ninio-Ninia \n cond Weak SPV', 'Ninio-Ninia \n cond Strong SPV',
 #		   'Ninio & \n Weak SPV', 'Ninia & \n Strong SPV',
 #		   'Ninio & \n Strong SPV', 'Ninia & \n Weak SPV']
-	tit = ['Ninio & \n Weak SPV', 'Ninia & \n Strong SPV',
-		   'Ninio & \n Strong SPV', 'Ninia & \n Weak SPV']
+	tit = ['Niño & \n Weak SPV', 'Niña & \n Strong SPV',
+		   'Niño & \n Strong SPV', 'Niña & \n Weak SPV']
 	lev = ['50 hPa', '200 hPa']
 	proj = ccrs.PlateCarree(central_longitude=180)
-	fig, ax = plt.subplots(nrows=4, ncols=2, figsize=(5, 3.6), subplot_kw={'projection': proj})
-	clevs = np.arange(-1.25, 1.75, 0.5)
+	fig, ax = plt.subplots(nrows=4, ncols=2, figsize=(7, 4), subplot_kw={'projection': proj})
+	clevs = [-1, -0.3, 0.3, 1]
 	barra = plt.cm.RdBu_r
 	for i in range(4):
 		#ax = plt.subplot(8, 2, i * 2+ 1, projection=proj)
@@ -265,16 +266,10 @@ def PlotCompositesdivPFx4(var50, var200, lat, lon, title, filename):
 		#mask array
 		u_mask = ma.array(u,mask = M)
 		v_mask = ma.array(v,mask = M)
-		ax[i, 0].quiver(lon[2:-1:10], lat1[2:-1:8], u_mask[2:-1:8, 2:-1:10],
-			  v_mask[2:-1:8, 2:-1:10], transform=ccrs.PlateCarree(),
+		ax[i, 0].quiver(lon[2:-1:12], lat1[2:-1:10], u_mask[2:-1:10, 2:-1:12],
+			  v_mask[2:-1:10, 2:-1:12], transform=ccrs.PlateCarree(),
 			  angles='xy', scale=25)
-		ax[i, 0].coastlines(linewidth=0.4)
-		#ax[i, 0].add_feature(cartopy.feature.BORDERS, linestyle='-', alpha=.5)
-		ax[i, 0].gridlines(crs=proj, linewidth=0.3, linestyle='-')
-		lon_formatter = LongitudeFormatter(zero_direction_label=True)
-		lat_formatter = LatitudeFormatter()
-		ax[i, 0].xaxis.set_major_formatter(lon_formatter)
-		ax[i, 0].yaxis.set_major_formatter(lat_formatter)
+		ax[i, 0].coastlines(linewidth=0.4, edgecolor='green')
 
 		ax[i, 1].set_extent([0, 359, -90, -18], crs=ccrs.PlateCarree())
 		lat = lat[lat < 0]
@@ -292,16 +287,10 @@ def PlotCompositesdivPFx4(var50, var200, lat, lon, title, filename):
 		#mask array
 		u_mask = ma.array(u,mask = M)
 		v_mask = ma.array(v,mask = M)
-		im2 = ax[i, 1].quiver(lon[2:-1:10], lat1[2:-1:8], u_mask[2:-1:8, 2:-1:10],
-			  v_mask[2:-1:8, 2:-1:10], transform=ccrs.PlateCarree(),
+		im2 = ax[i, 1].quiver(lon[2:-1:12], lat1[2:-1:10], u_mask[2:-1:10, 2:-1:12],
+			  v_mask[2:-1:10, 2:-1:12], transform=ccrs.PlateCarree(),
 			  angles='xy', scale=25)
-		ax[i, 1].coastlines(linewidth=0.4)
-		#ax[i, 1].add_feature(cartopy.feature.BORDERS, linestyle='-', alpha=.5)
-		ax[i, 1].gridlines(crs=proj, linewidth=0.3, linestyle='-')
-		lon_formatter = LongitudeFormatter(zero_direction_label=True)
-		lat_formatter = LatitudeFormatter()
-		ax[i, 1].xaxis.set_major_formatter(lon_formatter)
-		ax[i, 1].yaxis.set_major_formatter(lat_formatter)
+		ax[i, 1].coastlines(linewidth=0.4, edgecolor='green')
 		if i==0:
 			plt.quiverkey(im2, 0.9, 1.1, 0.5, r'$0.5 m^2/s^2$', labelpos='N',labelsep=0.03,
 				      coordinates='axes', fontproperties={'size':7}, color='k')
@@ -314,7 +303,7 @@ def PlotCompositesdivPFx4(var50, var200, lat, lon, title, filename):
 		bx.annotate(row, xy=(0, 0.5), xytext=(-bx.yaxis.labelpad-pad, 0),
 			    xycoords='axes fraction', rotation=90, textcoords='offset points',
 			    size='large', ha='center', va='center', fontsize=6)
-	fig.subplots_adjust(top=0.8, hspace=0.15)#, wspace=0.03)
+	fig.subplots_adjust(top=0.8, wspace=0.03)
 	plt.suptitle(title, fontsize=10, x=0.49, y=0.92)
 	plt.savefig(filename, dpi=500, bbox_inches='tight', papertype='A4')
 	plt.clf()

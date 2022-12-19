@@ -32,21 +32,18 @@ iter = sys.argv[1]
 
 PATH_DATA_2 = '/home/users/vg140344/datos/data/fogt/'
 
-if ~os.path.isfile(PATH_DATA_2 + 'correlations/monthly_correlations_SPoV_enso_' + str(iter) +'.nc4'):
+if ~os.path.isfile(PATH_DATA_2 + 'correlations/monthly_correlations_SPoV_enso_' + str(iter) +'_sep_d_new.nc4'):
 	correl_SPV_EN = np.empty([7])
 	correl_SPV_LN = np.empty([7])
 	correl_WPV_EN = np.empty([7])
 	correl_WPV_LN = np.empty([7])
-	correl_WPV = np.empty([7])
-	correl_SPV = np.empty([7])
-
 
 
 	month = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb']
 	seas = ['ASO', 'SON', 'OND', 'NDJ', 'DJF']
 
 	for i in np.arange(0, 7):
-		FILE = np.load(PATH_DATA_2 + 'z200_PV_conditioned_ENSO_' + month[i] + '.npz')
+		FILE = np.load(PATH_DATA_2 + 'z50_PV_conditioned_ENSO_' + month[i] + '_sep_d_new.npz')
 		#test correlation
 		correl_SPV_EN[i] = TestCorrelation(FILE['var1'],  FILE['var3'],
 						   FILE['var4'], FILE['var6'])
@@ -56,29 +53,22 @@ if ~os.path.isfile(PATH_DATA_2 + 'correlations/monthly_correlations_SPoV_enso_' 
 						   FILE['var5'], FILE['var6'])
 		correl_WPV_LN[i] = TestCorrelation(FILE['var2'],  FILE['var3'],
 						   FILE['var8'], FILE['var9'])
-		correl_WPV[i] = TestCorrelation(FILE['var8'], FILE['var9'], FILE['var5'], FILE['var6'])
-		correl_SPV[i] = TestCorrelation(FILE['var4'], FILE['var6'], FILE['var7'], FILE['var9'])
-
 	ds = xr.Dataset({'correl_SPV_EN': (['month'], correl_SPV_EN),
 			 'correl_SPV_LN': (['month'], correl_SPV_LN),
 			 'correl_WPV_EN': (['month'], correl_WPV_EN),
-			 'correl_WPV_LN': (['month'], correl_WPV_LN),
-			 'correl_WPV': (['month'], correl_WPV),
-			 'correl_SPV': (['month'], correl_SPV)},
+			 'correl_WPV_LN': (['month'], correl_WPV_LN)},
 			 coords={'month': (['month'], month), 'iter': iter})
 
-	ds.to_netcdf(PATH_DATA_2 + 'correlations/monthly_correlations_SPoV_enso_' + str(iter) + '.nc4')
-if ~os.path.isfile(PATH_DATA_2 + 'correlations/seasonal_correlations_SPoV_enso_' + str(iter) +'.nc4'):
+	ds.to_netcdf(PATH_DATA_2 + 'correlations/monthly_correlations_z50_SPoV_enso_' + str(iter) + '_d_sep_new.nc4')
+if ~os.path.isfile(PATH_DATA_2 + 'correlations/seasonal_correlations_z50_SPoV_enso_' + str(iter) +'_sep_d_new.nc4'):
 
 	correl_SPV_EN = np.empty([5])
 	correl_SPV_LN = np.empty([5])
 	correl_WPV_EN = np.empty([5])
 	correl_WPV_LN = np.empty([5])
-	correl_WPV = np.empty([5])
-	correl_SPV = np.empty([5])
 
 	for i in np.arange(0, 5):
-		FILE = np.load(PATH_DATA_2 + 'z200_PV_conditioned_ENSO_' + seas[i] + '.npz')
+		FILE = np.load(PATH_DATA_2 + 'z50_PV_conditioned_ENSO_' + seas[i] + '_sep_d_new.npz')
 		#test correlation
 		correl_SPV_EN[i] = TestCorrelation(FILE['var1'],  FILE['var3'],
 						   FILE['var4'], FILE['var6'])
@@ -88,17 +78,12 @@ if ~os.path.isfile(PATH_DATA_2 + 'correlations/seasonal_correlations_SPoV_enso_'
 						   FILE['var5'], FILE['var6'])
 		correl_WPV_LN[i] = TestCorrelation(FILE['var2'],  FILE['var3'],
 						   FILE['var8'], FILE['var9'])
-		correl_WPV[i] = TestCorrelation(FILE['var8'], FILE['var9'], FILE['var5'], FILE['var6'])
-		correl_SPV[i] = TestCorrelation(FILE['var4'], FILE['var6'], FILE['var7'], FILE['var9'])
-
 	ds = xr.Dataset({'correl_SPV_EN': (['seas'], correl_SPV_EN),
 			 'correl_SPV_LN': (['seas'], correl_SPV_LN),
 			 'correl_WPV_EN': (['seas'], correl_WPV_EN),
-			 'correl_WPV_LN': (['seas'], correl_WPV_LN),
-			 'correl_WPV': (['seas'], correl_WPV),
-			 'correl_SPV': (['seas'], correl_SPV)},
+			 'correl_WPV_LN': (['seas'], correl_WPV_LN)},
 			 coords={'seas': (['seas'], seas), 'iter': iter})
-	ds.to_netcdf(PATH_DATA_2 + 'correlations/seasonal_correlations_SPoV_enso_' + str(iter) +'.nc4')
+	ds.to_netcdf(PATH_DATA_2 + 'correlations/seasonal_correlations_z50_SPoV_enso_' + str(iter) +'_sep_d_new.nc4')
 	print(datetime.now()- startTime)
 
 

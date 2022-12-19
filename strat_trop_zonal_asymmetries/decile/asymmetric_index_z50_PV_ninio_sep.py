@@ -28,7 +28,7 @@ os.environ['HDF5_USE_FILE_LOCKING'] = 'FALSE'
 PATH_DATA = '~/datos/data/'
 PATH_DATA_2 = '/home/users/vg140344/datos/data/fogt/'
 FIG_PATH = '/home/users/vg140344/assessment_SH_zonal_asymmetries/figures/strat_trop_zonal_asymmetries/'
-FILE_HGT_S4 = 'monthly_hgt200_aug_feb.nc4'
+FILE_HGT_S4 = 'monthly_hgt50_aug_feb.nc4'
 FILE_NINIO_S4 = 'fogt/ninio34_monthly.nc4'
 FILE_PV_S4 = 'fogt/SPV_index.nc4'
 hgt = xr.open_dataset(PATH_DATA + FILE_HGT_S4)
@@ -65,8 +65,6 @@ correl_SPV_EN = np.empty([7])
 correl_SPV_LN = np.empty([7])
 correl_WPV_EN = np.empty([7])
 correl_WPV_LN = np.empty([7])
-correl_WPV = np.empty([7])
-correl_SPV = np.empty([7])
 
 for i in np.arange(0, 7):
 	var_WPV_EN = hgt.z.values[i, index_WPV_EN, :, :]
@@ -78,33 +76,23 @@ for i in np.arange(0, 7):
 	var_SPV_LN = hgt.z.values[i, index_SPV_LN, :, :]
 	var_WPV_all = hgt.z.values[i, index_WPV_all.values, :, :]
 	var_SPV_all = hgt.z.values[i, index_SPV_all.values, :, :]
-
-	np.savez(PATH_DATA_2 + 'z200_PV_conditioned_ENSO_' + month[i] + '_sep_d_new.npz', var1=hgt.z.values[i, index_SPV_all.values, :, :], var2=hgt.z.values[i, index_WPV_all.values, :, :], var3=hgt.z.values[i, index_normal_all.values, :, :], var4=hgt.z.values[i, index_SPV_EN, :, :], var5=hgt.z.values[i, index_WPV_EN, :, :], var6=hgt.z.values[i, index_normal_EN, :, :], var7=hgt.z.values[i, index_SPV_LN, :, :], var8=hgt.z.values[i, index_WPV_LN, :, :], var9=hgt.z.values[i, index_normal_LN, :, :])
-
+	np.savez(PATH_DATA_2 + 'z50_PV_conditioned_ENSO_' + month[i] + '_sep_d_new.npz', var1=hgt.z.values[i, index_SPV_all.values, :, :], var2=hgt.z.values[i, index_WPV_all.values, :, :], var3=hgt.z.values[i, index_normal_all.values, :, :], var4=hgt.z.values[i, index_SPV_EN, :, :], var5=hgt.z.values[i, index_WPV_EN, :, :], var6=hgt.z.values[i, index_normal_EN, :, :], var7=hgt.z.values[i, index_SPV_LN, :, :], var8=hgt.z.values[i, index_WPV_LN, :, :], var9=hgt.z.values[i, index_normal_LN, :, :])
 	#test correlation
 	correl_SPV_EN[i] = TestCorrelation(var_SPV_all, var_normal_all, var_SPV_EN, var_normal_EN)
 	correl_WPV_EN[i] = TestCorrelation(var_WPV_all, var_normal_all, var_WPV_EN, var_normal_EN)
 	correl_SPV_LN[i] = TestCorrelation(var_SPV_all, var_normal_all, var_SPV_LN, var_normal_LN)
 	correl_WPV_LN[i] = TestCorrelation(var_WPV_all, var_normal_all, var_WPV_LN, var_normal_LN)
-	correl_SPV[i] = TestCorrelation(var_SPV_EN, var_normal_EN, var_SPV_LN, var_normal_LN)
-	correl_WPV[i] = TestCorrelation(var_WPV_EN, var_normal_EN, var_WPV_LN, var_normal_LN)
-
 ds = xr.Dataset({'correl_SPV_EN': (['month'], correl_SPV_EN),
 		 'correl_SPV_LN': (['month'], correl_SPV_LN),
 		 'correl_WPV_EN': (['month'], correl_WPV_EN),
-		 'correl_WPV_LN': (['month'], correl_WPV_LN),
-		 'correl_WPV': (['month'], correl_WPV),
-		 'correl_SPV': (['month'], correl_SPV)},
+		 'correl_WPV_LN': (['month'], correl_WPV_LN)},
 		 coords={'month': (['month'], month)})
-ds.to_netcdf(PATH_DATA_2 + 'monthly_correlations_SPoV_enso_polar_sep_d_new.nc4')
+ds.to_netcdf(PATH_DATA_2 + 'monthly_correlations_z50_SPoV_enso_polar_sep_d_new.nc4')
 
 correl_SPV_EN = np.empty([5])
 correl_SPV_LN = np.empty([5])
 correl_WPV_EN = np.empty([5])
 correl_WPV_LN = np.empty([5])
-correl_WPV = np.empty([5])
-correl_SPV = np.empty([5])
-
 seas = ['ASO', 'SON', 'OND', 'NDJ', 'DJF']
 for i in np.arange(0, 5):
 	hgt_s = hgt.isel(month=range(i, i+3)).mean(dim='month')
@@ -122,20 +110,14 @@ for i in np.arange(0, 5):
 	correl_WPV_EN[i] = TestCorrelation(var_WPV_all, var_normal_all, var_WPV_EN, var_normal_EN)
 	correl_SPV_LN[i] = TestCorrelation(var_SPV_all, var_normal_all, var_SPV_LN, var_normal_LN)
 	correl_WPV_LN[i] = TestCorrelation(var_WPV_all, var_normal_all, var_WPV_LN, var_normal_LN)
-	correl_SPV[i] = TestCorrelation(var_SPV_EN, var_normal_EN, var_SPV_LN, var_normal_LN)
-	correl_WPV[i] = TestCorrelation(var_WPV_EN, var_normal_EN, var_WPV_LN, var_normal_LN)
-
 	#save npz file to compute correlations
-	np.savez(PATH_DATA_2 + 'z200_PV_conditioned_ENSO_' + seas[i] + '_sep_d_new.npz',  var1=hgt_s.z.values[index_SPV_all.values, :, :], var2=hgt_s.z.values[index_WPV_all.values, :, :], var3=hgt_s.z.values[index_normal_all.values, :, :],  var4=hgt_s.z.values[index_SPV_EN, :, :], var5=hgt_s.z.values[index_WPV_EN, :, :], var6=hgt_s.z.values[index_normal_EN, :, :],  var7=hgt_s.z.values[index_SPV_LN, :, :], var8=hgt_s.z.values[index_WPV_LN, :, :], var9=hgt_s.z.values[index_normal_LN, :, :])
-
+	np.savez(PATH_DATA_2 + 'z50_PV_conditioned_ENSO_' + seas[i] + '_sep_d_new.npz',  var1=hgt_s.z.values[index_SPV_all.values, :, :], var2=hgt_s.z.values[index_WPV_all.values, :, :], var3=hgt_s.z.values[index_normal_all.values, :, :],  var4=hgt_s.z.values[index_SPV_EN, :, :], var5=hgt_s.z.values[index_WPV_EN, :, :], var6=hgt_s.z.values[index_normal_EN, :, :],  var7=hgt_s.z.values[index_SPV_LN, :, :], var8=hgt_s.z.values[index_WPV_LN, :, :], var9=hgt_s.z.values[index_normal_LN, :, :])
 ds = xr.Dataset({'correl_SPV_EN': (['seas'], correl_SPV_EN),
 		 'correl_SPV_LN': (['seas'], correl_SPV_LN),
 		 'correl_WPV_EN': (['seas'], correl_WPV_EN),
-		 'correl_WPV_LN': (['seas'], correl_WPV_LN),
-		 'correl_WPV': (['seas'], correl_WPV),
-		 'correl_SPV': (['seas'], correl_SPV)},
+		 'correl_WPV_LN': (['seas'], correl_WPV_LN)},
 		 coords={'seas': (['seas'], seas)})
-ds.to_netcdf(PATH_DATA_2 + 'seasonal_correlations_SPoV_enso_polar_sep_d_new.nc4')
+ds.to_netcdf(PATH_DATA_2 + 'seasonal_correlations_z50_SPoV_enso_polar_sep_d_new.nc4')
 
 
 

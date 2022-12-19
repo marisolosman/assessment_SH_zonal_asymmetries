@@ -60,6 +60,9 @@ correl_ninio_WPV = np.empty([7])
 correl_ninia_WPV = np.empty([7])
 correl_ninio_SPV = np.empty([7])
 correl_ninia_SPV = np.empty([7])
+correl_ninia = np.empty([7])
+correl_ninio = np.empty([7])
+
 month = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb']
 seas = ['ASO', 'SON', 'OND', 'NDJ', 'DJF']
 
@@ -73,26 +76,32 @@ for i in np.arange(0, 7):
 	var_ninio_all = hgt.z.values[i, index_ninio_all.values, :, :]
 	var_normal_all = hgt.z.values[i, index_normal_all.values, :, :]
 	var_ninia_all = hgt.z.values[i, index_ninia_all.values, :, :]
-	np.savez(PATH_DATA_2 + 'z200_conditioned_' + month[i] + '_new.npz', var1=hgt.z.values[i, index_ninio_all.values, :, :], var2=hgt.z.values[i, index_normal_all.values, :, :], var3=hgt.z.values[i, index_ninia_all.values, :, :], var4=hgt.z.values[i, index_ninio_WPV, :, :], var5=hgt.z.values[i, index_normal_WPV, :, :], var6=hgt.z.values[i, index_ninia_WPV, :, :], var7=hgt.z.values[i, index_ninio_SPV, :, :], var8=hgt.z.values[i, index_normal_SPV, :, :], var9=hgt.z.values[i, index_ninia_SPV, :, :])
+	np.savez(PATH_DATA_2 + 'z200_conditioned_' + month[i] + '.npz', var1=hgt.z.values[i, index_ninio_all.values, :, :], var2=hgt.z.values[i, index_normal_all.values, :, :], var3=hgt.z.values[i, index_ninia_all.values, :, :], var4=hgt.z.values[i, index_ninio_WPV, :, :], var5=hgt.z.values[i, index_normal_WPV, :, :], var6=hgt.z.values[i, index_ninia_WPV, :, :], var7=hgt.z.values[i, index_ninio_SPV, :, :], var8=hgt.z.values[i, index_normal_SPV, :, :], var9=hgt.z.values[i, index_ninia_SPV, :, :])
 
 #testear si los campos son distintos:
 	#test correlation
 	correl_ninio_WPV[i] = TestCorrelation(var_ninio_all, var_normal_all, var_ninio_WPV, var_normal_WPV)
 	correl_ninia_WPV[i] = TestCorrelation(var_ninia_all, var_normal_all, var_ninia_WPV, var_normal_WPV)
+	correl_ninia[i] = TestCorrelation(var_ninia_SPV, var_normal_SPV, var_ninia_WPV, var_normal_WPV)
+	correl_ninio[i] = TestCorrelation(var_ninio_SPV, var_normal_SPV, var_ninio_WPV, var_normal_WPV)
 	correl_ninio_SPV[i] = TestCorrelation(var_ninio_all, var_normal_all, var_ninio_SPV, var_normal_SPV)
 	correl_ninia_SPV[i] = TestCorrelation(var_ninia_all, var_normal_all, var_ninia_SPV, var_normal_SPV)
 
 ds = xr.Dataset({'correl_ninio_WPV': (['month'], correl_ninio_WPV),
 		 'correl_ninia_WPV': (['month'], correl_ninia_WPV),
 		 'correl_ninio_SPV': (['month'], correl_ninio_SPV),
-		 'correl_ninia_SPV': (['month'], correl_ninia_SPV),},
+		 'correl_ninia_SPV': (['month'], correl_ninia_SPV),
+		 'correl_ninia': (['month'], correl_ninia),
+		 'correl_ninio': (['month'], correl_ninio)},
 		 coords={'month': (['month'], month)})
-ds.to_netcdf(PATH_DATA_2 + 'monthly_correlations_enso_SPoV_polar_new.nc4')
+ds.to_netcdf(PATH_DATA_2 + 'monthly_correlations_enso_SPoV_polar.nc4')
 
 correl_ninio_WPV = np.empty([5])
 correl_ninia_WPV = np.empty([5])
 correl_ninio_SPV = np.empty([5])
 correl_ninia_SPV = np.empty([5])
+correl_ninio = np.empty([5])
+correl_ninia = np.empty([5])
 
 for i in np.arange(0, 5):
 	hgt_s = hgt.isel(month=range(i, i+3)).mean(dim='month')
@@ -107,20 +116,25 @@ for i in np.arange(0, 5):
 	var_ninia_all = hgt_s.z.values[index_ninia_all.values, :, :]
 
 	#save npz file to compute correlations
-	np.savez(PATH_DATA_2 + 'z200_conditioned_' + seas[i] + '_new.npz', var1=hgt_s.z.values[index_ninio_all.values, :, :], var2=hgt_s.z.values[index_normal_all.values, :, :], var3=hgt_s.z.values[index_ninia_all.values, :, :], var4=hgt_s.z.values[index_ninio_WPV, :, :], var5=hgt_s.z.values[index_normal_WPV, :, :], var6=hgt_s.z.values[index_ninia_WPV, :, :], var7=hgt_s.z.values[index_ninio_SPV, :, :], var8=hgt_s.z.values[index_normal_SPV, :, :], var9=hgt_s.z.values[index_ninia_SPV, :, :])
+	np.savez(PATH_DATA_2 + 'z200_conditioned_' + seas[i] + '.npz', var1=hgt_s.z.values[index_ninio_all.values, :, :], var2=hgt_s.z.values[index_normal_all.values, :, :], var3=hgt_s.z.values[index_ninia_all.values, :, :], var4=hgt_s.z.values[index_ninio_WPV, :, :], var5=hgt_s.z.values[index_normal_WPV, :, :], var6=hgt_s.z.values[index_ninia_WPV, :, :], var7=hgt_s.z.values[index_ninio_SPV, :, :], var8=hgt_s.z.values[index_normal_SPV, :, :], var9=hgt_s.z.values[index_ninia_SPV, :, :])
 	#test correlation
 	correl_ninio_WPV[i] = TestCorrelation(var_ninio_all, var_normal_all, var_ninio_WPV, var_normal_WPV)
 	correl_ninia_WPV[i] = TestCorrelation(var_ninia_all, var_normal_all, var_ninia_WPV, var_normal_WPV)
 	correl_ninio_SPV[i] = TestCorrelation(var_ninio_all, var_normal_all, var_ninio_SPV, var_normal_SPV)
 	correl_ninia_SPV[i] = TestCorrelation(var_ninia_all, var_normal_all, var_ninia_SPV, var_normal_SPV)
+	correl_ninia[i] = TestCorrelation(var_ninia_SPV, var_normal_SPV, var_ninia_WPV, var_normal_WPV)
+	correl_ninio[i] = TestCorrelation(var_ninio_SPV, var_normal_SPV, var_ninio_WPV, var_normal_WPV)
+
 
 
 ds = xr.Dataset({'correl_ninio_WPV': (['seas'], correl_ninio_WPV),
 		 'correl_ninia_WPV': (['seas'], correl_ninia_WPV),
 		 'correl_ninio_SPV': (['seas'], correl_ninio_SPV),
-		 'correl_ninia_SPV': (['seas'], correl_ninia_SPV),},
+		 'correl_ninia_SPV': (['seas'], correl_ninia_SPV),
+		 'correl_ninia': (['seas'], correl_ninia),
+		 'correl_ninio': (['seas'], correl_ninio)},
 		 coords={'seas': (['seas'], seas)})
-ds.to_netcdf(PATH_DATA_2 + 'seasonal_correlations_enso_SPoV_polar_new.nc4')
+ds.to_netcdf(PATH_DATA_2 + 'seasonal_correlations_enso_SPoV_polar.nc4')
 
 
 

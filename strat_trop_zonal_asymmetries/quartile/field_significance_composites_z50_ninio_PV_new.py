@@ -4,11 +4,11 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 RUTA = '/home/users/vg140344/datos/data/fogt/'
-lista = xr.open_mfdataset(RUTA + "correlations/seasonal_correlations_z50_enso_SPoV_*_new.nc4",
+lista = xr.open_mfdataset(RUTA + "correlations/seasonal_correlations_z50_enso_SPoV_*.nc4",
 			  parallel=True, combine='nested', chunks=10000, concat_dim='iter')
-lista.to_netcdf(RUTA + 'seasonal_correlations_z50_enso_SPoV_10k_new.nc4')
+lista.to_netcdf(RUTA + 'seasonal_correlations_z50_enso_SPoV_10k.nc4')
 
-file = RUTA + "seasonal_correlations_z50_enso_SPoV_polar_new.nc4"
+file = RUTA + "seasonal_correlations_z50_enso_SPoV_polar.nc4"
 correlations = xr.open_dataset(file)
 seasons = lista.seas.values
 df = pd.DataFrame()
@@ -25,14 +25,14 @@ for ii in lista.data_vars:
 								     'Percentile', 
 					     '5th Percentile', '95th Percentile']))
 
-df.to_csv(RUTA + "percentile_seasonal_correlations_composites_z50_enso_SPoV_new.csv")
+df.to_csv(RUTA + "percentile_seasonal_correlations_composites_z50_enso_SPoV.csv")
 
-lista = xr.open_mfdataset(RUTA + "correlations/monthly_correlations_z50_enso_SPoV_*_new.nc4",
+lista = xr.open_mfdataset(RUTA + "correlations/monthly_correlations_z50_enso_SPoV_*.nc4",
 			  parallel=True, combine='nested', chunks=10000, concat_dim='iter')
 
-lista.to_netcdf(RUTA + 'monthly_correlations_z50_enso_SPoV_10k_new.nc4')
+lista.to_netcdf(RUTA + 'monthly_correlations_z50_enso_SPoV_10k.nc4')
 
-file = RUTA + "monthly_correlations_z50_enso_SPoV_polar_new.nc4"
+file = RUTA + "monthly_correlations_z50_enso_SPoV_polar.nc4"
 correlations = xr.open_dataset(file)
 
 months = lista.month.values
@@ -49,6 +49,6 @@ for ii in lista.data_vars:
 					     index=months, columns=['Field', 'Correlation',
 							            'Percentile', 
 					     '5th Percentile', '95th Percentile']))
-df.to_csv(RUTA + "percentile_monthly_correlations_composites_z50_enso_SPoV_new.csv")
+df.to_csv(RUTA + "percentile_monthly_correlations_composites_z50_enso_SPoV.csv")
 
 

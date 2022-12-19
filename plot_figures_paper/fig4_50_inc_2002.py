@@ -87,20 +87,18 @@ def PlotComposites(model_m, lat_model, lon_model, observ_m, lat_observ,
 PATH_DATA = '~/datos/data/'
 PATH_DATA_2 = '~/datos/data/fogt/'
 FIG_PATH = '/home/users/vg140344/assessment_SH_zonal_asymmetries/figures_paper/'
-FILE_HGT_S4 = 'monthly_hgt50_aug_feb.nc4'
-FILE_NINIO_S4 = 'fogt/ninio34_monthly.nc4'
-FILE_PV_S4 = 'fogt/SPV_index.nc4'
+FILE_HGT_S4 = 'monthly_hgt50_aug_feb_inc_2002.nc'
+FILE_NINIO_S4 = 'fogt/ninio34_index_s4_inc_2002.nc4'
+FILE_PV_S4 = 'fogt/SPV_index_inc_2002.nc4'
 hgt_s4 = xr.open_dataset(PATH_DATA + FILE_HGT_S4)
 hgt_s4 = hgt_s4 - hgt_s4.mean(dim='longitude')
 FILE_HGT_ERAI = 'hgt_erai_50.nc4'
-FILE_NINIO_ERAI = 'fogt/ninio34_erai_index.nc4'
-FILE_PV_ERAI = 'fogt/SPV_index_erai.nc4'
+FILE_NINIO_ERAI = 'fogt/ninio34_erai_index_inc_2002.nc4'
+FILE_PV_ERAI = 'fogt/SPV_index_erai_inc_2002.nc4'
 hgt_erai = xr.open_dataset(PATH_DATA + FILE_HGT_ERAI)
 hgt_erai.time.values = hgt_erai.valid_time.values
 hgt_erai = xr.decode_cf(hgt_erai)
 
-#remove data from august 2002 to february 2003
-hgt_erai = hgt_erai.sel(time=hgt_erai.time.values[np.logical_or(hgt_erai.time.values<=np.datetime64('2002-07-31'), hgt_erai.time.values>=np.datetime64('2003-03-01'))])
 hgt_erai = hgt_erai.sel(**{'time':slice('1981-08-01', '2018-02-01')})
 hgt_erai = hgt_erai - hgt_erai.mean(dim='longitude')
 #abrir archivo de sst y PV del erai
@@ -144,7 +142,7 @@ for i in np.arange(0, 5):
 	#hgt_erai_seas_mean = hgt_erai['z'].resample(time='QS-' + lmonth[i]).mean(dim='time',skipna=True)
 	mes = datetime.datetime.strptime(lmonth[i], '%b').month
 	#hgt_erai_smean = hgt_erai_seas_mean.sel(time= np.logical_and(hgt_erai_seas_mean['time.month'] == mes, hgt_erai_seas_mean['time.year']!=2002))
-	hgt_erai_seas_mean = hgt_erai.sel(time= np.logical_and(hgt_erai['time.month'] == mes, hgt_erai['time.year']!=2002))
+	hgt_erai_seas_mean = hgt_erai.sel(time= hgt_erai['time.month'] == mes)
 	hgt_erai_smean = hgt_erai_seas_mean.z.values
 	hgt_erai_smean= np.nan_to_num(hgt_erai_smean, np.nanmean(hgt_erai_smean))
 	hgt_erai_smean = signal.detrend(hgt_erai_smean, axis=0, type='linear')
@@ -182,8 +180,8 @@ for i in np.arange(0, 5):
 	hgt_s4_NSPV = np.nanmean(hgt_s4_smean[index_PV_s4_normal.values, :, :], axis=0)
 	#title = 'Composites Z* 200hPa NINIO-NINIA years - ' + season[i]
 	#filename = FIG_PATH + 'Composites_ENSO_' + season[i] + '_det.eps'
-	title = 'Composites Z* 50hPa NIÑO-NIÑA years - ' + lmonth[i]
-	filename = FIG_PATH + 'Composites_ENSO_' + lmonth[i] + '_50_det.eps'
+	title = 'Composites Z* 50hPa NIÑO-NIÑA years (inc 2002) - ' + lmonth[i]
+	filename = FIG_PATH + 'Composites_ENSO_' + lmonth[i] + '_50_det_inc_2002.eps'
 	model = hgt_s4_EN - hgt_s4_LN
 	obs = hgt_erai_EN - hgt_erai_LN
 	var_model = {'var': model, 'mask': model / np.sqrt(SS_s4_EN + SS_s4_LN),
@@ -204,8 +202,8 @@ for i in np.arange(0, 5):
 #	obs = hgt_erai_WSPV - hgt_erai_NSPV
 #	PlotComposites(model, lat_s4, lon_s4, obs, lat_erai, lon_erai, title, filename)
 	#composites SSPV - WsPV
-	title = 'Composites Z* 50hPa Weak-Strong SPV years - ' + lmonth[i]
-	filename = FIG_PATH + 'Composites_SPV_' + lmonth[i] + '_50_det.eps'
+	title = 'Composites Z* 50hPa Weak-Strong SPV years (inc 2002) - ' + lmonth[i]
+	filename = FIG_PATH + 'Composites_SPV_' + lmonth[i] + '_50_det_inc 2002.eps'
 	#title = 'Composites Z* 200hPa Strong-Weak SPV years - ' + season[i]
 	#filename = FIG_PATH + 'Composites_SPV_' + season[i] + '_det.eps'
 	model = hgt_s4_WSPV - hgt_s4_SSPV

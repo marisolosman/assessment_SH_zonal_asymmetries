@@ -12,7 +12,7 @@ job_directory = "%s/.job" %os.getcwd()
 
 mkdir_p(job_directory)
 
-for i in np.arange(8, 11):
+for i in np.arange(9, 11):
 	job_file = os.path.join(job_directory, "task_%s.job" %i)
 	with open(job_file, 'w') as fh:
 		fh.writelines("#!/bin/bash\n")

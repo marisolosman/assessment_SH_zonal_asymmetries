@@ -82,7 +82,7 @@ for i in [2]: #np.arange(7):
 	uchi_all = np.mean(uchi.u_chi[i, :, :, :], axis=2)
 	vchi_all = np.mean(vchi.v_chi[i, :, :, :], axis=2)
 	tit = 'Composites S4 RWS (s-1) and Divergent wind (m/s) 200hPa - ' + month[i]
-	filename = FIG_PATH + '200_RWS_chi_' + month[i] +'_new.eps'
+	filename = FIG_PATH + '200_RWS_chi_' + month[i] +'_fig10.eps'
 	plots.PlotCompositesRWSChiWENSOPV(var_WPV_EN - var_SPV_EN,
 					  var_WPV_EN - var_WPV_LN,
 					  var_WPV_EN - var_all,

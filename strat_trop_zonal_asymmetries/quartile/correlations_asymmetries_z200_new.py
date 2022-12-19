@@ -32,52 +32,62 @@ iter = sys.argv[1]
 
 PATH_DATA_2 = '/home/users/vg140344/datos/data/fogt/'
 
-if ~os.path.isfile(PATH_DATA_2 + 'correlations/monthly_correlations_z200_enso_SPoV_' + str(iter) +'_new.nc4'):
+if ~os.path.isfile(PATH_DATA_2 + 'correlations/monthly_correlations_z200_enso_SPoV_' + str(iter) +'.nc4'):
 	correl_ninio_WPV = np.empty([7])
 	correl_ninia_WPV = np.empty([7])
 	correl_ninio_SPV = np.empty([7])
 	correl_ninia_SPV = np.empty([7])
-
+	correl_ninio = np.empty([7])
+	correl_ninia = np.empty([7])
 	month = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb']
 	seas = ['ASO', 'SON', 'OND', 'NDJ', 'DJF']
 
 	for i in np.arange(0, 7):
-		FILE = np.load(PATH_DATA_2 + 'z200_conditioned_' + month[i] + '_new.npz')
+		FILE = np.load(PATH_DATA_2 + 'z200_conditioned_' + month[i] + '.npz')
 		#test correlation
 		correl_ninio_WPV[i] = TestCorrelation(FILE['var1'],  FILE['var2'], FILE['var4'], FILE['var5'])
 		correl_ninia_WPV[i] = TestCorrelation(FILE['var3'],  FILE['var2'], FILE['var6'], FILE['var5'])
 		correl_ninio_SPV[i] = TestCorrelation(FILE['var1'], FILE['var2'], FILE['var7'], FILE['var8'])
 		correl_ninia_SPV[i] = TestCorrelation(FILE['var3'], FILE['var2'], FILE['var9'], FILE['var8'])
+		correl_ninio[i] = TestCorrelation(FILE['var4'], FILE['var5'], FILE['var7'], FILE['var8'])
+		correl_ninia[i] = TestCorrelation(FILE['var6'], FILE['var5'], FILE['var9'], FILE['var8'])
 
 	ds = xr.Dataset({'correl_ninio_WPV': (['month'], correl_ninio_WPV),
 			 'correl_ninia_WPV': (['month'], correl_ninia_WPV),
 			 'correl_ninio_SPV': (['month'], correl_ninio_SPV),
-			 'correl_ninia_SPV': (['month'], correl_ninia_SPV),},
+			 'correl_ninia_SPV': (['month'], correl_ninia_SPV),
+			 'correl_ninia': (['month'], correl_ninia),
+			 'correl_ninio': (['month'], correl_ninio)},
 			 coords={'month': (['month'], month), 'iter': iter})
-	ds.to_netcdf(PATH_DATA_2 + 'correlations/monthly_correlations_z200_enso_SPoV_' + str(iter) + '_new.nc4')
-if ~os.path.isfile(PATH_DATA_2 + 'correlations/seasonal_correlations_z200_enso_SPoV_' + str(iter) +'_new.nc4'):
+	ds.to_netcdf(PATH_DATA_2 + 'correlations/monthly_correlations_z200_enso_SPoV_' + str(iter) + '.nc4')
+if ~os.path.isfile(PATH_DATA_2 + 'correlations/seasonal_correlations_z200_enso_SPoV_' + str(iter) +'.nc4'):
 
 	correl_ninio_WPV = np.empty([5])
 	correl_ninia_WPV = np.empty([5])
 	correl_ninio_SPV = np.empty([5])
 	correl_ninia_SPV = np.empty([5])
+	correl_ninio = np.empty([5])
+	correl_ninia = np.empty([5])
 
 
 	for i in np.arange(0, 5):
-		FILE = np.load(PATH_DATA_2 + 'z200_conditioned_' + seas[i] + '_new.npz')
+		FILE = np.load(PATH_DATA_2 + 'z200_conditioned_' + seas[i] + '.npz')
 		#test correlation
 		correl_ninio_WPV[i] = TestCorrelation(FILE['var1'], FILE['var2'], FILE['var4'], FILE['var5'])
 		correl_ninia_WPV[i] = TestCorrelation(FILE['var3'], FILE['var2'], FILE['var6'], FILE['var5'])
 		correl_ninio_SPV[i] = TestCorrelation(FILE['var1'], FILE['var2'], FILE['var7'], FILE['var8'])
 		correl_ninia_SPV[i] = TestCorrelation(FILE['var3'], FILE['var2'], FILE['var9'], FILE['var8'])
+		correl_ninio[i] = TestCorrelation(FILE['var4'], FILE['var5'], FILE['var7'], FILE['var8'])
+		correl_ninia[i] = TestCorrelation(FILE['var6'], FILE['var5'], FILE['var9'], FILE['var8'])
 
 	ds = xr.Dataset({'correl_ninio_WPV': (['seas'], correl_ninio_WPV),
 			 'correl_ninia_WPV': (['seas'], correl_ninia_WPV),
 			 'correl_ninio_SPV': (['seas'], correl_ninio_SPV),
-			 'correl_ninia_SPV': (['seas'], correl_ninia_SPV),},
+			 'correl_ninia_SPV': (['seas'], correl_ninia_SPV),
+			 'correl_ninia': (['seas'], correl_ninia),
+			 'correl_ninio': (['seas'], correl_ninio)},
 			 coords={'seas': (['seas'], seas), 'iter':iter})
-	ds.to_netcdf(PATH_DATA_2 + 'correlations/seasonal_correlations_z200_enso_SPoV_' + str(iter) +'_new.nc4')
+	ds.to_netcdf(PATH_DATA_2 + 'correlations/seasonal_correlations_z200_enso_SPoV_' + str(iter) +'.nc4')
 
 	print(datetime.now()- startTime)
-
 

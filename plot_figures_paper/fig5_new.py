@@ -2,6 +2,7 @@
 # rows: months: from september to february
 # columns 1-4: in phase and out of phase
 # columns 5-8: weak-strong SPV /ninio , weak-strong SPV /ninia, ninio-ninia /weak SPV, ninio-ninia/strong SPV
+from __future__ import unicode_literals
 import numpy as np
 import xarray as xr
 import os
@@ -86,10 +87,10 @@ var_ninia_all = np.mean(hgt.z.values[:, index_ninia_all.values, :, :], axis=1)
 SS_ninia_all = np.var(hgt.z.values[:, index_ninia_all.values, :, :], axis=1) / nn_ninia_all
 
 tit = 'Composites S4 Z* 200hPa '
-filename = FIG_PATH + 'z200_composites_ENSO_SPoV_2.eps'
+filename = FIG_PATH + 'z200_composites_ENSO_SPoV_fig9.eps'
 
-titulos = ['Ninio & Weak SPV', 'Ninia & Strong SPV', 'Ninio & Strong SPV',
-           'Ninia & Weak SPV']
+titulos = ['Niño & Weak SPV', 'Niña & Strong SPV', 'Niño & Strong SPV',
+           'Niña & Weak SPV']
 lon = hgt.longitude.values
 lat = hgt.latitude.values
 proj = ccrs.Stereographic(central_longitude=-60, central_latitude=-90)
@@ -179,10 +180,10 @@ plt.clf()
 plt.cla()
 plt.close()
 
-filename = FIG_PATH + 'z200_composites_ENSO_SPoV_3.eps'
+filename = FIG_PATH + 'z200_composites_ENSO_SPoV_fig8.eps'
 
-titulos = ['Weak-Strong SPV cond Ninio', 'Weak-Strong SPV cond Ninia',
-           'Ninio-Ninia cond Weak SPV', 'Ninio-Ninia cond Strong SPV']
+titulos = ['Weak-Strong SPV cond Niño', 'Weak-Strong SPV cond Niña',
+           'Niño-Niña cond Weak SPV', 'Niño-Niña cond Strong SPV']
 lon = hgt.longitude.values
 lat = hgt.latitude.values
 proj = ccrs.Stereographic(central_longitude=-60, central_latitude=-90)

@@ -37,41 +37,46 @@ index_ninio_SPV = np.logical_and(index_ninio_all.values, index_SPV_lower.values)
 index_ninia_SPV = np.logical_and(index_ninia_all.values, index_SPV_lower.values)
 index_normal_SPV = np.logical_and(index_normal_all.values, index_SPV_lower.values)
 
-month = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb']
-seas = ['ASO', 'SON', 'OND', 'NDJ', 'DJF']
 
-for i in np.arange(0, 7):
-	var_ninio_WPV = np.mean(hgt.z.values[i, index_ninio_WPV, :, :], axis=0)
-	var_normal_WPV = np.mean(hgt.z.values[i, index_normal_WPV, :, :], axis=0)
-	var_ninia_WPV = np.mean(hgt.z.values[i, index_ninia_WPV, :, :], axis=0)	
-	var_ninio_SPV = np.mean(hgt.z.values[i, index_ninio_SPV, :, :], axis=0)
-	var_normal_SPV = np.mean(hgt.z.values[i, index_normal_SPV, :, :], axis=0)
-	var_ninia_SPV = np.mean(hgt.z.values[i, index_ninia_SPV, :, :], axis=0)	
-	var_ninio_all = np.mean(hgt.z.values[i, index_ninio_all.values, :, :], axis=0)
-	var_normal_all = np.mean(hgt.z.values[i, index_normal_all.values, :, :], axis=0)
-	var_ninia_all = np.mean(hgt.z.values[i, index_ninia_all.values, :, :], axis=0)	
-	tit = 'Composites S4 Z* 50hPa Conditioned - SPoV - ' + month[i]
-	filename = FIG_PATH + 'z50_composites_ENSO_' + month[i] +'_SPoV_new.png'
-	plots.PlotEnsoCompositesPoV(var_ninio_all-var_normal_all, var_ninia_all- var_normal_all,
-				    var_ninio_WPV - var_normal_WPV, var_ninia_WPV - var_normal_WPV,
-				    var_ninio_SPV - var_normal_SPV, var_ninia_SPV - var_normal_SPV,
-				    hgt.latitude, hgt.longitude, tit, filename)
-for i in np.arange(0, 5):
-	hgt_s = hgt.isel(month=range(i, i+3)).mean(dim='month')
-	var_ninio_WPV = np.mean(hgt_s.z.values[index_ninio_WPV, :, :], axis=0)
-	var_normal_WPV = np.mean(hgt_s.z.values[index_normal_WPV, :, :], axis=0)
-	var_ninia_WPV = np.mean(hgt_s.z.values[index_ninia_WPV, :, :], axis=0)	
-	var_ninio_SPV = np.mean(hgt_s.z.values[index_ninio_SPV, :, :], axis=0)
-	var_normal_SPV = np.mean(hgt_s.z.values[index_normal_SPV, :, :], axis=0)
-	var_ninia_SPV = np.mean(hgt_s.z.values[index_ninia_SPV, :, :], axis=0)	
-	var_ninio_all = np.mean(hgt_s.z.values[index_ninio_all.values, :, :], axis=0)
-	var_normal_all = np.mean(hgt_s.z.values[index_normal_all.values, :, :], axis=0)
-	var_ninia_all = np.mean(hgt_s.z.values[index_ninia_all.values, :, :], axis=0)	
-	tit = 'Composites S4 Z* 50hPa Conditioned - SPoV - ' + seas[i]
-	filename = FIG_PATH + 'z50_composites_ENSO_' + seas[i] +'_SPoV_new.png'
-	plots.PlotEnsoCompositesPoV(var_ninio_all-var_normal_all, var_ninia_all- var_normal_all,
-				    var_ninio_WPV - var_normal_WPV, var_ninia_WPV - var_normal_WPV,
-				    var_ninio_SPV - var_normal_SPV, var_ninia_SPV - var_normal_SPV,
-				    hgt.latitude, hgt.longitude, tit, filename)
+print(np.sum(index_ninio_SPV), np.sum(index_ninia_SPV), np.sum(index_normal_SPV))
+print(np.sum(index_ninio_WPV), np.sum(index_ninia_WPV), np.sum(index_normal_WPV))
+print(1836/10)
 
-
+#month = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb']
+#seas = ['ASO', 'SON', 'OND', 'NDJ', 'DJF']
+#
+#for i in np.arange(0, 7):
+#	var_ninio_WPV = np.mean(hgt.z.values[i, index_ninio_WPV, :, :], axis=0)
+#	var_normal_WPV = np.mean(hgt.z.values[i, index_normal_WPV, :, :], axis=0)
+#	var_ninia_WPV = np.mean(hgt.z.values[i, index_ninia_WPV, :, :], axis=0)	
+#	var_ninio_SPV = np.mean(hgt.z.values[i, index_ninio_SPV, :, :], axis=0)
+#	var_normal_SPV = np.mean(hgt.z.values[i, index_normal_SPV, :, :], axis=0)
+#	var_ninia_SPV = np.mean(hgt.z.values[i, index_ninia_SPV, :, :], axis=0)	
+#	var_ninio_all = np.mean(hgt.z.values[i, index_ninio_all.values, :, :], axis=0)
+#	var_normal_all = np.mean(hgt.z.values[i, index_normal_all.values, :, :], axis=0)
+#	var_ninia_all = np.mean(hgt.z.values[i, index_ninia_all.values, :, :], axis=0)	
+#	tit = 'Composites S4 Z* 50hPa Conditioned - SPoV - ' + month[i]
+#	filename = FIG_PATH + 'z50_composites_ENSO_' + month[i] +'_SPoV_new.png'
+#	plots.PlotEnsoCompositesPoV(var_ninio_all-var_normal_all, var_ninia_all- var_normal_all,
+#				    var_ninio_WPV - var_normal_WPV, var_ninia_WPV - var_normal_WPV,
+#				    var_ninio_SPV - var_normal_SPV, var_ninia_SPV - var_normal_SPV,
+#				    hgt.latitude, hgt.longitude, tit, filename)
+#for i in np.arange(0, 5):
+#	hgt_s = hgt.isel(month=range(i, i+3)).mean(dim='month')
+#	var_ninio_WPV = np.mean(hgt_s.z.values[index_ninio_WPV, :, :], axis=0)
+#	var_normal_WPV = np.mean(hgt_s.z.values[index_normal_WPV, :, :], axis=0)
+#	var_ninia_WPV = np.mean(hgt_s.z.values[index_ninia_WPV, :, :], axis=0)	
+#	var_ninio_SPV = np.mean(hgt_s.z.values[index_ninio_SPV, :, :], axis=0)
+#	var_normal_SPV = np.mean(hgt_s.z.values[index_normal_SPV, :, :], axis=0)
+#	var_ninia_SPV = np.mean(hgt_s.z.values[index_ninia_SPV, :, :], axis=0)	
+#	var_ninio_all = np.mean(hgt_s.z.values[index_ninio_all.values, :, :], axis=0)
+#	var_normal_all = np.mean(hgt_s.z.values[index_normal_all.values, :, :], axis=0)
+#	var_ninia_all = np.mean(hgt_s.z.values[index_ninia_all.values, :, :], axis=0)	
+#	tit = 'Composites S4 Z* 50hPa Conditioned - SPoV - ' + seas[i]
+#	filename = FIG_PATH + 'z50_composites_ENSO_' + seas[i] +'_SPoV_new.png'
+#	plots.PlotEnsoCompositesPoV(var_ninio_all-var_normal_all, var_ninia_all- var_normal_all,
+#				    var_ninio_WPV - var_normal_WPV, var_ninia_WPV - var_normal_WPV,
+#				    var_ninio_SPV - var_normal_SPV, var_ninia_SPV - var_normal_SPV,
+#				    hgt.latitude, hgt.longitude, tit, filename)
+#
+#
